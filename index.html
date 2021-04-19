@@ -23,13 +23,13 @@
         <header>
             <div class="btn-group btn-group-lg">
                 <input type="radio" class="btn-check" name="options" id="pomodoro" autocomplete="off" checked />
-                <label class="btn btn-danger btn-custom-color" for="pomodoro">Pomodoro</label>
+                <label class="btn btn-danger btn-custom-color z-index-3" for="pomodoro">Pomodoro</label>
               
                 <input type="radio" class="btn-check" name="options" id="break" autocomplete="off" />
-                <label class="btn btn-danger btn-custom-color" for="break">Descanso</label>
+                <label class="btn btn-danger btn-custom-color z-index-3" for="break">Descanso</label>
               
                 <input type="radio" class="btn-check" name="options" id="longbreak" autocomplete="off" />
-                <label class="btn btn-danger btn-custom-color" for="longbreak">Descanso Longo</label>
+                <label class="btn btn-danger btn-custom-color z-index-3" for="longbreak">Descanso Longo</label>
             </div>
         </header>
         <main class="m-auto">
@@ -51,7 +51,7 @@
         <footer>
             <div class="buttons">
                 <div class="left">
-                    <button type="button" class="btn btn-danger btn-custom-color btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalTime">Personalizar Tempo</button>
+                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalTime">Personalizar Tempo</button>
                     <div class="modal fade" id="modalTime" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -93,9 +93,9 @@
                     </div>
                 </div>
                 <div class="middle">
-                    <button type="button" class="btn btn-danger btn-custom-color btn-lg mr-1-5" onclick="startTimer()">Iniciar</button>
-                    <button type="button" class="btn btn-danger btn-custom-color btn-lg mr-1-5" onclick="pauseTimer()">Pausar Tempo</button>
-                    <button type="button" class="btn btn-danger btn-custom-color btn-lg" onclick="resetTimer()">Resetar</button>
+                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-lg mr-1-5" onclick="startTimer()">Iniciar</button>
+                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-lg mr-1-5" onclick="pauseTimer()">Pausar Tempo</button>
+                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-lg" onclick="resetTimer()">Resetar</button>
                 </div>
                 <div class="right">
                     <button type="button" class="btn btn-danger btn-custom-color btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalConfigurations">Configurações</button>
@@ -130,9 +130,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-danger btn-custom-color" onclick="resetSettingsGeneral()">Resetar Configurações</button>
-                                <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal" onclick="saveGeneralConfig()">Salvar Mudanças</button>
+                                <button type="button" class="btn btn-danger btn-custom-color z-index-3" data-mdb-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-danger btn-custom-color z-index-3" onclick="resetSettingsGeneral()">Resetar Configurações</button>
+                                <button type="button" class="btn btn-danger btn-custom-color z-index-3" data-mdb-dismiss="modal" onclick="saveGeneralConfig()">Salvar Mudanças</button>
                             </div>
                             </div>
                         </div>
