@@ -1,0 +1,147 @@
+/* Variables */
+:root {
+    --linewidth: 0.5vw;
+    --numbersize: 0.75vw;
+
+    --backgroundColor: #183937;
+    --LightBackgroundColor: #7c7c7c;
+}
+
+/* Fill entire screen */
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+/* Make body flex */
+body {
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(ellipse farthest-corner at center top,var(--LightBackgroundColor) 0%,var(--backgroundColor) 100%);
+}
+
+/* Tomato CSS */
+.tomato {
+    width: 30vw;
+}
+
+.tomato .top-tomato {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.tomato .middle-tomato {
+    position: relative;
+    display: flex;
+    margin: -0.5% auto;
+    width: 95%;
+    z-index: 0;
+}
+
+.tomato .bottom-tomato {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.tomato img {
+    width: 100%;
+    -webkit-filter: drop-shadow(0 25px 50px #222);
+    filter: drop-shadow(0 25px 50px #222);
+}
+
+.tomato .bottom-tomato img {
+    -webkit-filter: drop-shadow(0 50px 50px #222);
+    filter: drop-shadow(0 50px 50px #222);
+}
+
+/* Line Numbers */
+#meter {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 25%;
+    margin-top: 2.5%;
+    mask-image: linear-gradient(to right, transparent 5%, #fff 25%, #fff 75%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to right, transparent 5%, #fff 25%, #fff 75%, transparent 95%);
+    z-index: 1;
+}
+
+#meter .meter-data {
+    display: flex;
+    position: absolute;
+    margin-left: calc(50% - calc(var(--linewidth) / 2));
+    height: 50%;
+}
+
+.tick {
+    display: block;
+    width: var(--linewidth);
+    margin-right: var(--linewidth);
+    height: 100%;
+    background-color: white;
+    border-radius: 100px;
+}
+
+.tick.small {
+    height: 75%;
+}
+
+.tick.big::after {
+    content: attr(value);
+    color: white;
+    display: flex;
+    position: absolute;
+    top: 100%;
+    flex-direction: row;
+    justify-content: center;
+    width: var(--linewidth);
+    font-size: var(--numbersize);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tick.end {
+    margin-right: calc(var(--linewidth) * -1);
+}
+
+/* Header */
+header {
+    align-self: center;
+    padding: 2% 0;
+}
+
+/* Footer */
+footer {
+    padding: 2% 0;
+}
+
+footer .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* */ 
+.btn-custom-color {
+    background-color: #b41f10;
+}
+
+.btn-custom-color:hover, .btn-custom-color:active, .btn-check:checked+.btn-danger {
+    background-color: #82160C;
+    box-shadow: none !important;
+}
+
+.btn-custom-color:focus {
+    background-color: #b41f10 !important;
+}
+
+/* Custom CSS */
+.pl-1-8 {
+    padding-left: 1.8em !important;
+}
+
+.mr-1-5 {
+    margin-right: 1.5em !important;
+}
+

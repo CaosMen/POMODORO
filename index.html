@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Pomodoro</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+        <!-- MDB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
+        <!-- Icon -->
+        <link rel="shortcut icon" type="image/png" href="assets/images/icon/icon.png">
+        <!-- Main CSS -->
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="btn-group btn-group-lg">
+                <input type="radio" class="btn-check" name="options" id="pomodoro" autocomplete="off" checked />
+                <label class="btn btn-danger btn-custom-color" for="pomodoro">Pomodoro</label>
+              
+                <input type="radio" class="btn-check" name="options" id="break" autocomplete="off" />
+                <label class="btn btn-danger btn-custom-color" for="break">Descanso</label>
+              
+                <input type="radio" class="btn-check" name="options" id="longbreak" autocomplete="off" />
+                <label class="btn btn-danger btn-custom-color" for="longbreak">Descanso Longo</label>
+            </div>
+        </header>
+        <main class="m-auto">
+            <div class="tomato">
+                <div class="top-tomato">
+                    <img src="assets/svg/tomato/TopTomato.svg" alt="Top Tomato Part">
+                </div>
+                <div class="middle-tomato">
+                    <img src="assets/svg/tomato/Middle.svg" alt="Middle Tomato Part">
+                </div>
+                <div class="bottom-tomato">
+                    <div id='meter'>
+                        <div class="meter-data"></div>
+                    </div>
+                    <img src="assets/svg/tomato/BottomTomato.svg" alt="Bottom Tomato Part">
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="buttons">
+                <div class="left">
+                    <button type="button" class="btn btn-danger btn-custom-color btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalTime">Personalizar Tempo</button>
+                    <div class="modal fade" id="modalTime" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTimeLabel">Personalização do Tempo</h5>
+                                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label class="form-label mb-3">Digite o tempo em minutos:</label>
+                                <div class="form-outline">
+                                    <input type="number" min="1" id="pomodoroConfig" class="form-control"/>
+                                    <label class="form-label" for="pomodoroConfig">Tempo Pomodoro</label>
+                                </div><br>
+                                <div class="form-outline">
+                                    <input type="number" min="1" id="breakConfig" class="form-control" />
+                                    <label class="form-label" for="breakConfig">Tempo de Descanso</label>
+                                </div><br>
+                                <div class="form-outline">
+                                    <input type="number" min="1" id="longBreakConfig" class="form-control" />
+                                    <label class="form-label" for="longBreakConfig">Tempo de Descanso Longo</label>
+                                </div><br>
+                                <label class="form-label mb-3">Personalização:</label>
+                                <div class="form-check mb-4 pl-1-8">
+                                    <input class="form-check-input" type="checkbox" value="" id="automaticBreakConfig"/>
+                                    <label class="form-check-label" for="automaticBreakConfig">Troca automática de sessões?</label>
+                                </div>
+                                <div class="form-outline mb-3">
+                                    <input type="number" min="1" id="longBreakAfterConfig" class="form-control" disabled/>
+                                    <label class="form-label" for="longBreakAfterConfig">Sessões de foco necessárias para o Descanso Longo</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-danger btn-custom-color" onclick="resetSettingsTimer()">Resetar Configurações</button>
+                                <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal" onclick="saveTimerConfig()">Salvar Mudanças</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle">
+                    <button type="button" class="btn btn-danger btn-custom-color btn-lg mr-1-5" onclick="startTimer()">Iniciar</button>
+                    <button type="button" class="btn btn-danger btn-custom-color btn-lg mr-1-5" onclick="pauseTimer()">Pausar Tempo</button>
+                    <button type="button" class="btn btn-danger btn-custom-color btn-lg" onclick="resetTimer()">Resetar</button>
+                </div>
+                <div class="right">
+                    <button type="button" class="btn btn-danger btn-custom-color btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalConfigurations">Configurações</button>
+                    <div class="modal fade" id="modalConfigurations" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalConfigurationsLabel">Configurações</h5>
+                                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label class="form-label mb-3" for="soundConfig">Som de Alerta:</label>
+                                <div class="input-group mb-3">
+                                    <button class="btn btn-outline-primary" type="button" onclick="soundNotificationTest()">Testar Som</button>
+                                    <select class="form-select" id="soundConfig">
+                                        <option selected value="Mudo">Mudo</option>
+                                        <option value="Sino">Sino</option>
+                                        <option value="Iphone">Iphone</option>
+                                        <option value="Flowers">Flowers</option>
+                                        <option value="Bip">Bip</option>
+                                        <option value="BeHappy">Be Happy</option>
+                                    </select>
+                                </div>
+                                <label class="form-label" for="volumeConfig">Volume:</label>
+                                <div class="range mb-2">
+                                    <input type="range" class="form-range" id="volumeConfig"/>
+                                </div>
+                                <label class="form-label mb-3">Notificação:</label>
+                                <div class="form-check mb-2 pl-1-8">
+                                    <input class="form-check-input" type="checkbox" value="" id="notificationWebConfig"/>
+                                    <label class="form-check-label" for="notificationWebConfig">Notificações no Navegador?</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-danger btn-custom-color" onclick="resetSettingsGeneral()">Resetar Configurações</button>
+                                <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal" onclick="saveGeneralConfig()">Salvar Mudanças</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Howler -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+        <!-- Optional JavaScript -->
+        <script src="js/main.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
