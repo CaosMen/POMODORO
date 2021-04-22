@@ -23,13 +23,13 @@
         <header>
             <div class="btn-group btn-group-lg">
                 <input type="radio" class="btn-check" name="options" id="pomodoro" autocomplete="off" checked />
-                <label class="btn btn-danger btn-custom-color z-index-3" for="pomodoro">Pomodoro</label>
+                <label class="btn btn-danger btn-custom-color btn-mobile-top z-index-3" for="pomodoro">Pomodoro</label>
               
                 <input type="radio" class="btn-check" name="options" id="break" autocomplete="off" />
-                <label class="btn btn-danger btn-custom-color z-index-3" for="break">Descanso</label>
+                <label class="btn btn-danger btn-custom-color btn-mobile-top z-index-3" for="break">Descanso</label>
               
                 <input type="radio" class="btn-check" name="options" id="longbreak" autocomplete="off" />
-                <label class="btn btn-danger btn-custom-color z-index-3" for="longbreak">Descanso Longo</label>
+                <label class="btn btn-danger btn-custom-color btn-mobile-top z-index-3" for="longbreak">Descanso Longo</label>
             </div>
         </header>
         <main class="m-auto">
@@ -51,7 +51,7 @@
         <footer>
             <div class="buttons">
                 <div class="left">
-                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalTime">Personalizar Tempo</button>
+                    <button type="button" class="btn btn-danger btn-custom-color btn-mobile z-index-3 btn-rounded btn-lg mobile-not-render" data-mdb-toggle="modal" data-mdb-target="#modalTime">Personalizar Tempo</button>
                     <div class="modal fade" id="modalTime" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -76,16 +76,16 @@
                                 <label class="form-label mb-3">Personalização:</label>
                                 <div class="form-check mb-4 pl-1-8">
                                     <input class="form-check-input" type="checkbox" value="" id="automaticBreakConfig"/>
-                                    <label class="form-check-label" for="automaticBreakConfig">Troca automática de sessões?</label>
+                                    <label class="form-check-label" for="automaticBreakConfig">Troca automática de sessões</label>
                                 </div>
                                 <div class="form-outline mb-3">
                                     <input type="number" min="1" id="longBreakAfterConfig" class="form-control" disabled/>
-                                    <label class="form-label" for="longBreakAfterConfig">Sessões de foco necessárias para o Descanso Longo</label>
+                                    <label class="form-label" for="longBreakAfterConfig">Sessões para o Descanso Longo</label>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-danger btn-custom-color" onclick="resetSettingsTimer()">Resetar Configurações</button>
+                                <button type="button" class="btn btn-danger btn-custom-color mobile-not-render" onclick="resetSettingsTimer()">Resetar Configurações</button>
                                 <button type="button" class="btn btn-danger btn-custom-color" data-mdb-dismiss="modal" onclick="saveTimerConfig()">Salvar Mudanças</button>
                             </div>
                             </div>
@@ -93,12 +93,12 @@
                     </div>
                 </div>
                 <div class="middle">
-                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-lg mr-1-5" onclick="startTimer()">Iniciar</button>
-                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-lg mr-1-5" onclick="pauseTimer()">Pausar Tempo</button>
-                    <button type="button" class="btn btn-danger btn-custom-color z-index-3 btn-lg" onclick="resetTimer()">Resetar</button>
+                    <button type="button" class="btn btn-danger btn-custom-color btn-mobile z-index-3 btn-lg mr-1-5" onclick="startTimer()">Iniciar</button>
+                    <button type="button" class="btn btn-danger btn-custom-color btn-mobile z-index-3 btn-lg mr-1-5" onclick="pauseTimer()">Pausar Tempo</button>
+                    <button type="button" class="btn btn-danger btn-custom-color btn-mobile z-index-3 btn-lg" onclick="resetTimer()">Resetar</button>
                 </div>
                 <div class="right">
-                    <button type="button" class="btn btn-danger btn-custom-color btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalConfigurations">Configurações</button>
+                    <button type="button" class="btn btn-danger btn-custom-color btn-mobile btn-rounded btn-lg mobile-not-render" data-mdb-toggle="modal" data-mdb-target="#modalConfigurations">Configurações</button>
                     <div class="modal fade" id="modalConfigurations" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -131,13 +131,17 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger btn-custom-color z-index-3" data-mdb-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-danger btn-custom-color z-index-3" onclick="resetSettingsGeneral()">Resetar Configurações</button>
+                                <button type="button" class="btn btn-danger btn-custom-color mobile-not-render z-index-3" onclick="resetSettingsGeneral()">Resetar Configurações</button>
                                 <button type="button" class="btn btn-danger btn-custom-color z-index-3" data-mdb-dismiss="modal" onclick="saveGeneralConfig()">Salvar Mudanças</button>
                             </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="mobile-buttons mt-4">
+                <button type="button" class="btn btn-danger btn-custom-color btn-mobile z-index-3 btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalTime">Personalizar Tempo</button>
+                <button type="button" class="btn btn-danger btn-custom-color btn-mobile btn-rounded btn-lg" data-mdb-toggle="modal" data-mdb-target="#modalConfigurations">Configurações</button>
             </div>
         </footer>
         <!-- Howler -->

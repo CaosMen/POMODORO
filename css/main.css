@@ -1,7 +1,7 @@
 /* Variables */
 :root {
-    --linewidth: 0.5vw;
-    --numbersize: 0.75vw;
+    --linewidth: 1.0vh;
+    --numbersize: 1.25vh;
 
     --backgroundColor: #183937;
     --LightBackgroundColor: #183937;
@@ -22,7 +22,8 @@ body {
 
 /* Tomato CSS */
 .tomato {
-    width: 30vw;
+    width: 60vh;
+    max-width: 85vw;
 }
 
 .tomato .top-tomato {
@@ -137,6 +138,10 @@ footer .buttons {
 }
 
 /* Custom CSS */
+.mobile-buttons {
+    display: none;
+}
+
 .pl-1-8 {
     padding-left: 1.8em !important;
 }
@@ -150,3 +155,98 @@ footer .buttons {
     z-index: 3;
 } 
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+    footer, header {
+        padding: 4.5% 5%;
+    }
+
+    .mobile-not-render {
+        display: none;
+    }
+
+    .btn-mobile {
+        padding: 1.25rem 1.6rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .btn-mobile-top {
+        margin: 0;
+        padding: 1.25rem 1.6rem !important;
+        font-size: 0.65rem !important;
+    }
+
+    .middle {
+        display: flex;
+    }
+
+    .mobile-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .mobile-buttons button:first-child {
+        margin-right: 1rem;
+    }
+    
+    .mr-1-5 {
+        margin-right: 0.5em !important;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    footer, header {
+        padding: 4.5% 5%;
+    }
+
+    .mobile-not-render {
+        display: none;
+    }
+
+    .buttons {
+        margin: 0 15%;
+    }
+
+    .btn-mobile {
+        padding: 0.75rem 1.35rem 0.6875rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .middle {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    .mobile-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 15%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    footer, header {
+        padding: 4.5% 5%;
+    }
+
+    .btn-mobile {
+        padding: 0.65rem 1.25rem 0.6875rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .mr-1-5 {
+        margin-right: 1em !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    footer, header {
+        padding: 4.5% 5%;
+    }
+}
